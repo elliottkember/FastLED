@@ -9,6 +9,6 @@ jobs:
       - name: check out
         uses: actions/checkout@v2
         with:
-          path: /project
+          path: ./project
       - name: test
         run: make -C /project/test/esp32/run.sh
