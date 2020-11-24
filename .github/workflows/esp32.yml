@@ -14,19 +14,3 @@ jobs:
           path: arduino-esp32
       - name: run test in docker
         run: docker run --rm -v $PWD:/project -w /project espressif/idf:release-v3.3 make -C test/esp32 -j5 --quiet all
-  esp32-test:
-    runs-on: ubuntu-latest
-    name: Test with ESP-IDF
-    container:
-      image: espressif/idf:release-v3.3
-      options: --cpus 1
-    steps:
-      - name: check out
-        uses: actions/checkout@v2
-      - name: check out arduino
-        uses: actions/checkout@v2
-        with:
-          repo: https://github.com/espressif/arduino-esp32.git
-          path: arduino-esp32
-      - name: test
-        run: . /opt/esp/idf/export.sh && PATH=/opt/esp/tools/xtensa-esp32-elf/1.22.0-97-gc752ad5-5.2.0/xtensa-esp32-elf/bin:$PATH make -C test/esp32
