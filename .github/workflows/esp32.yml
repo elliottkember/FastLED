@@ -20,4 +20,4 @@ jobs:
       - name: ls -lah
         run: ls -lah test/esp32
       - name: test
-        run: make -C test/esp32
+        run: PATH=/opt/esp/tools/xtensa-esp32-elf:$PATH make -C test/esp32
