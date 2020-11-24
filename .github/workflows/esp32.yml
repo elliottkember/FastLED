@@ -1,6 +1,18 @@
 on: [push]
 
 jobs:
+  test-direct:
+    name: Test in docker container
+    steps:
+      - name: check out
+        uses: actions/checkout@v2
+      - name: check out arduino
+        uses: actions/checkout@v2
+        with:
+          repo: https://github.com/espressif/arduino-esp32.git
+          path: arduino-esp32
+      - name: run test in docker
+        run: docker run --rm -v $PWD:/project -w /project -it espressif/idf:release-v3.3 make -C test/esp32 -j5 --quiet all
   esp32-test:
     runs-on: ubuntu-latest
     name: Test with ESP-IDF
