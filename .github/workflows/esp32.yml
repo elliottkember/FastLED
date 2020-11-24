@@ -12,8 +12,9 @@ jobs:
         uses: actions/checkout@v2
       - name: check out arduino
         uses: actions/checkout@v2
-        repo: https://github.com/espressif/arduino-esp32.git
-        path: arduino-esp32
+        with:
+          repo: https://github.com/espressif/arduino-esp32.git
+          path: arduino-esp32
       - name: pwd
         run: pwd
       - name: ls -lah
