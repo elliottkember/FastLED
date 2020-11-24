@@ -15,4 +15,4 @@ jobs:
       - name: ls -lah
         run: ls -lah test/esp32
       - name: test
-        run: make -C test/esp32/run.sh
+        run: make -C test/esp32
