@@ -2,6 +2,7 @@ on: [push]
 
 jobs:
   test-direct:
+    runs-on: ubuntu-latest
     name: Test in docker container
     steps:
       - name: check out
