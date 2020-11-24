@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  esp32-test
+    runs-on: ubuntu-latest
+    name: Test with ESP-IDF
+    steps:
+      - name: check out
+        uses: actions/checkout@v2
+      - name: test
+        uses: docker://espressif/idf:release-v3.3
+        with:
+          entrypoint: /project
+          args: make -j4
+        # run: docker run --rm -v $PWD:/project -w /project make -j4
