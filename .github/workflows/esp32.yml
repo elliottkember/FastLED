@@ -6,8 +6,6 @@ jobs:
     name: Test with ESP-IDF
     container:
       image: espressif/idf:release-v3.3
-      volumes:
-        - .:/project
       options: --cpus 1
     steps:
       - name: check out
