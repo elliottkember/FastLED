@@ -10,5 +10,9 @@ jobs:
     steps:
       - name: check out
         uses: actions/checkout@v2
+      - name: pwd
+        run: pwd
+      - name: ls -lah
+        run: ls -lah
       - name: test
         run: make -C ./test/esp32/run.sh
