@@ -10,7 +10,7 @@ jobs:
       - name: check out arduino
         uses: actions/checkout@v2
         with:
-          repo: https://github.com/espressif/arduino-esp32.git
+          repository: https://github.com/espressif/arduino-esp32.git
           path: test/esp32/arduino-esp32
       - name: Cache multiple paths
         uses: actions/cache@v2
