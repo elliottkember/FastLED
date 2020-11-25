@@ -18,5 +18,7 @@ jobs:
           path: |
             test/esp32/build
           key: ${{ runner.os }}-esp32-build
+      - name: clean
+        run: docker run --rm -v $PWD:/project -w /project espressif/idf:release-v3.3 make -C test/esp32 --quiet clean
       - name: run test in docker
-        run: docker run --rm -v $PWD:/project -w /project espressif/idf:release-v3.3 make -C test/esp32 -j5 --quiet all
+        run: docker run --rm -v $PWD:/project -w /project espressif/idf:release-v3.3 make -C test/esp32 --quiet all
