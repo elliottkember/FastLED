@@ -12,5 +12,11 @@ jobs:
         with:
           repo: https://github.com/espressif/arduino-esp32.git
           path: arduino-esp32
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            test/esp32/build
+          key: ${{ runner.os }}-esp32-build
       - name: run test in docker
         run: docker run --rm -v $PWD:/project -w /project espressif/idf:release-v3.3 make -C test/esp32 -j5 --quiet all
